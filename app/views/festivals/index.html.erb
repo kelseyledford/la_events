@@ -15,7 +15,7 @@
 		<td><%= festival.name %></td>
 		<td><%= festival.type %></td>
 		<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>
-		<td><%= festival.start_time.in_time_zone("America/Los_Angeles").strftime("%l:%M%p") %></td>
+		<td><%= festival.start_time.strftime("%l:%M%p") %></td>
 		<td><%= link_to 'Details', festival %></td>
 	</tr>
 	<% end %>

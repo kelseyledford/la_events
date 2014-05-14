@@ -10,10 +10,10 @@ Date:
 <%= f.date_select :fest_date %>
 <br>
 Start Time:
-<%= f.time_select :start_time %>
+<%= f.time_select :start_time, {ampm: true, minute_step: 15}, :ignore_date => true, :value => Time.now %>
 <br>
 End Time:
-<%= f.time_select :end_time %>
+<%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
 <br>
 Neighborhood:
 <%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
