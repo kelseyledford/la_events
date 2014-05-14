@@ -1,0 +1,6 @@
+<ul>
+  <% @festivals.each do |festival| %>
+  <li><%= link_to festival.name, 
+    :action => 'show', :id => festival.id  %></li>
+  <% end %>
+</ul>

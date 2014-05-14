@@ -1,0 +1,37 @@
+<h1><%= @festival.name %></h1>
+
+Date: <%= @festival.fest_date.strftime("%m/%d/%y")%>
+<br>
+Time: <%= @festival.start_time.in_time_zone("America/Los_Angeles").strftime("%l:%M%p") %> - <%= @festival.end_time.in_time_zone("America/Los_Angeles").strftime("%l:%M%p") %>
+<br>
+Address:<%= @festival.address %>
+<br>
+Details:<%= @festival.details %>
+<br>
+<!-- Google Map goes here -->
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+<br>
+<%= link_to "Update this Event", edit_festival_path(@festival) %>
+<br>
+<%= link_to "Back to the Events Page", festivals_path %>
+
+// <script type ="text/javascript">
+// 	handler = Gmaps.build('Google');
+// 	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+// 	  markers = handler.addMarkers([
+// 	    {
+// 	      "lat": 0,
+// 	      "lng": 0,
+// 	      "picture": {
+// 	        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+// 	        "width":  36,
+// 	        "height": 36
+// 	      },
+// 	      "infowindow": "hello!"
+// 	    }
+// 	  ]);
+// 	  handler.bounds.extendWith(markers);
+// 	  handler.fitMapToBounds();
+// </script>

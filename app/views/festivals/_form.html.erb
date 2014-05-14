@@ -1,0 +1,31 @@
+<%= form_for @festival do |f| %>
+
+Name: 
+<%= f.text_field :name %>
+<br>
+Type:
+<%= f.text_field :type %>
+<br>
+Date:
+<%= f.date_select :fest_date %>
+<br>
+Start Time:
+<%= f.time_select :start_time %>
+<br>
+End Time:
+<%= f.time_select :end_time %>
+<br>
+Neighborhood:
+<%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
+<br>
+Details:
+<%= f.text_field :details %>
+<br>
+Address:
+<%= f.text_field :address %>
+<br>t
+<%= f.submit %>
+
+<% end %>
+
+<%= link_to "Back to the festivals page", festivals_path %>

@@ -1,0 +1,24 @@
+<h1>Los Angeles Festivals</h1>
+<br>
+<table class="table table-bordered table-responsive table-condensed table-hover">
+	<tr>
+		<th><%= link_to "Date", :sort => 'date' %></th>
+		<th><%= link_to "Name", :sort => 'name' %></th>
+		<th><%= link_to "Type", :sort => 'type' %></th>
+		<th><%= link_to "Neighborhood", :sort => 'neighborhood'%></th>
+		<th><%= link_to "Time", :sort => 'time' %></th>
+		<th>More Info</th>
+	</tr>
+	<% @festivals.each do |festival| %>
+	<tr>
+		<td><%= festival.fest_date.strftime("%m/%d/%y") %></td>
+		<td><%= festival.name %></td>
+		<td><%= festival.type %></td>
+		<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>
+		<td><%= festival.start_time.in_time_zone("America/Los_Angeles").strftime("%l:%M%p") %></td>
+		<td><%= link_to 'Details', festival %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'New Event', new_festival_path %>
