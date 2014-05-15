@@ -4,6 +4,7 @@
 	<thead>
 	<tr>
 		<th><%= link_to "Date" %></th>
+		<th style="display: none">Timesort</th>
 		<th><%= link_to "Time" %></th>
 		<th><%= link_to "Name" %></th>
 		<th><%= link_to "Type" %></th>
@@ -15,7 +16,8 @@
 	<% @festivals.each do |festival| %>
 	<tr>
 		<td><%= festival.fest_date.strftime("%m/%d/%y") %></td>
-		<td class="nosort"><%= festival.start_time.strftime("%l:%M%p") %></td>
+		<td style="display: none"><%= festival.start_time %></td>
+		<td><%= festival.start_time.strftime("%l:%M%P") %></td>
 		<td><%= festival.name %></td>
 		<td><%= festival.type %></td>
 		<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>

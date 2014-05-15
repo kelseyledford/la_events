@@ -3,5 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $("#festivals_list").dataTable()
-
+  $("#festivals_list").dataTable( 
+  	"aoColumns": [
+  		null,
+  		null,
+      { "iDataSort": 1 },
+      null,
+      null,
+      null,
+      null
+    ]
+  );
