@@ -7,6 +7,7 @@ gem 'mongoid', github: 'mongoid/mongoid'
 gem 'gmaps4rails'
 gem 'simple_form'
 gem 'geocoder'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'
