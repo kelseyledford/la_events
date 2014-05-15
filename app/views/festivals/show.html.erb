@@ -18,21 +18,17 @@ Address: <%= @festival.street %>, <%= @festival.city %>, <%= @festival.state %>,
 <%= link_to "Back to the Events Page", festivals_path %>
 
  <script type ="text/javascript">
-	handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
+	var handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {zoom: 16, provider_key: "AIzaSyBnugBXbtHJ6qqIyILKqKPQ1l2rafKtjx0"}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarker(
     {
-      "lat": 0,
-      "lng": 0,
-      "picture": {
-        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        "width":  36,
-        "height": 36
-      },
-      "infowindow": "hello!"
+      lat: <%= @festival.to_coordinates[0] %>,
+      lng: <%= @festival.to_coordinates[1] %>
     }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
+  );
+  handler.map.centerOn({
+      lat: <%= @festival.to_coordinates[0] %>,
+      lng: <%= @festival.to_coordinates[1] %>
+    });
 });
 </script>

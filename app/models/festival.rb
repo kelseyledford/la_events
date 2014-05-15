@@ -14,14 +14,18 @@ class Festival
   field :city, type: String
   field :state, type: String
   field :zip, type: String
-  field :latitude, type: Float
-  field :longitude, type: Float
+  # field :latitude, type: Float
+  # field :longitude, type: Float
   field :coordinates, type: Array
+
+  def address
+    self.street + " " + self.city + " " + self.state + " " + self.zip
+  end 
 
   validates_presence_of :name, :type, :fest_date, :start_time, :end_time, :neighborhood, :street, :city, :state, :zip, message: "Please complete the form"
 
-  # geocoded_by :address
-  # after_validation :geocode
+  geocoded_by :address
+  after_validation :geocode
 
   belongs_to :neighborhood
   belongs_to :location
