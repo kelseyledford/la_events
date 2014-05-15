@@ -4,9 +4,9 @@ Date: <%= @festival.fest_date.strftime("%m/%d/%y")%>
 <br>
 Time: <%= @festival.start_time.strftime("%l:%M%p") %> - <%= @festival.end_time.strftime("%l:%M%p") %>
 <br>
-Address:<%= @festival.address %>
+Details: <%= @festival.details %>
 <br>
-Details:<%= @festival.details %>
+Address: <%= @festival.street %>, <%= @festival.city %>, <%= @festival.state %>, <%= @festival.zip %>
 <br>
 <!-- Google Map goes here -->
 <div style='width: 800px;'>

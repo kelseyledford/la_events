@@ -1,29 +1,47 @@
+<%#Show some errors %>
+<% if @festival.errors.any? %>
+	<h2><%= pluralize(@festival.errors.count, "error") %>
+	<ul class="list-group">
+		<% @festival.errors.messages.each do |message| %>
+		<li class="list-group-item list-group-item-danger">
+			<%= message[1][0] %>
+		</li>
+	<% end %>
+	</ul> 
+<% end %>
+
 <%= form_for @festival do |f| %>
 
 Name: 
-<%= f.text_field :name %>
+<%= f.text_field :name, placeholder: 'Name' %>
 <br>
 Type:
-<%= f.text_field :type %>
+<%= f.text_field :type, placeholder: 'Type' %>
 <br>
 Date:
 <%= f.date_select :fest_date %>
 <br>
 Start Time:
-<%= f.time_select :start_time, {ampm: true, minute_step: 15}, :ignore_date => true, :value => Time.now %>
+<%= f.time_select :start_time, {ampm: true, minute_step: 15}, :ignore_date => true %>
 <br>
 End Time:
-<%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
+<%= f.time_select :end_time, {ampm: true, minute_step: 15}, :ignore_date => true %>
 <br>
 Neighborhood:
 <%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
 <br>
 Details:
-<%= f.text_field :details %>
+<%= f.text_area :details, {size: "30x10"}%>
 <br>
 Address:
-<%= f.text_field :address %>
-<br>t
+<br>
+<%= f.text_field :street, placeholder: 'Street Address' %>
+<br>
+<%= f.text_field :city, placeholder: 'City' %>
+<%= f.text_field :state, placeholder: 'State' %>
+<br>
+<%= f.text_field :zip, placeholder: 'Zip Code' %>
+<br>
 <%= f.submit %>
 
 <% end %>
