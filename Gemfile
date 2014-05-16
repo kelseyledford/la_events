@@ -5,11 +5,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'gmaps4rails'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'geocoder'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'bootstrap_form'
 gem "combined_time_select", "~> 1.0.1"
+gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'

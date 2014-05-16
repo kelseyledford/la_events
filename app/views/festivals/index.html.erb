@@ -18,7 +18,7 @@
 		<td><%= festival.fest_date.strftime("%m/%d/%y") %></td>
 		<td style="display: none"><%= festival.start_time %></td>
 		<td><%= festival.start_time.strftime("%l:%M%P") %></td>
-		<td><%= festival.name %></td>
+		<td><strong><%= festival.name %></strong></td>
 		<td><%= festival.type %></td>
 		<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>
 		<td><%= link_to 'Details', festival %></td>
