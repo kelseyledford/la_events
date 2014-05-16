@@ -10,13 +10,13 @@
 	</ul> 
 <% end %>
 
-<%= bootstrap_form_for @festival do |f| %>
+<%= bootstrap_form_for(@festival, layout: :inline) do |f| %>
 
 <%= f.text_field :name, placeholder: 'Name' %>
 <br>
 <%= f.text_field :type, placeholder: 'Type' %>
 <br>
-<%= f.date_select :fest_date, label: 'Festival Date' %>
+<%= f.date_select :fest_date, :order => [:day, :month, :year], label: 'Festival Date' %>
 <br>
 <%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
 <br>
@@ -25,7 +25,7 @@
 <%= f.label "Neighborhood" %>
 <%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
 <br>
-<%= f.text_area :details, {size: "30x10"}%>
+<%= f.text_area :details, {size: "30x10"} %>
 <br>
 <br>
 <%= f.text_field :street, placeholder: 'Street Address', label: 'Address' %>
