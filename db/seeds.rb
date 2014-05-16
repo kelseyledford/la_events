@@ -8,8 +8,8 @@
 
 Festival.destroy_all
 
-Festival.create(fest_date: '7/21/2014', name: 'Ramen Festival', type: 'Food',  start_time: '11am', end_time: '2pm')
-Festival.create(fest_date: '7/4/2014', name: 'Fireworks', type: 'Holiday', start_time: '9pm')
+Festival.create(name: 'Ramen Festival', type: 'Food', fest_date: '7/21/2014', start_time: '11:00', end_time: '14:00', details: 'Bring your appetite!', street: '285 W Huntington Drive', city: 'Arcadia', state: 'CA', zip: '91007')
+Festival.create(name: 'Fireworks', type: 'Holiday', fest_date: '7/4/2014', start_time: '21:00', end_time: '24:00', details: 'Come celebrate Independence Day with us!', street: '100 W. Torrance Blvd.', city: 'Redondo Beach', state: 'CA', zip: '90277')
 
 Neighborhood.destroy_all
 
