@@ -19,7 +19,7 @@ class Festival
     self.street + " " + self.city + " " + self.state + " " + self.zip
   end 
 
-  validates_presence_of :name, :type, :fest_date, :start_time, :end_time, :neighborhood, :street, :city, :state, :zip, message: "Please complete the form"
+  # validates_presence_of :name, :type, :fest_date, :start_time, :end_time, :neighborhood, :street, :city, :state, :zip, message: "Please complete the form"
 
   # geocoded_by :address
   # after_validation :geocode
