@@ -1,7 +1,7 @@
 class Festival
 
   include Mongoid::Document
-  # include Geocoder::Model::Mongoid
+  include Geocoder::Model::Mongoid
 
   field :name, type: String
   field :type, type: String
@@ -21,8 +21,8 @@ class Festival
 
   # validates_presence_of :name, :type, :fest_date, :start_time, :end_time, :neighborhood, :street, :city, :state, :zip, message: "Please complete the form"
 
-  # geocoded_by :address
-  # after_validation :geocode
+  geocoded_by :address
+  after_validation :geocode
 
   belongs_to :neighborhood
   belongs_to :location
