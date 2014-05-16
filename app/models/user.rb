@@ -8,6 +8,10 @@ class User
 
   has_secure_password
 
+  validates :name, uniqueness: true, length: { minimum: 3}
+  validates :email, presence: true, uniqueness: true
+  validates :password, length: { minimum: 5 }
+
   def password
     @password
   end

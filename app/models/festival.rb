@@ -15,11 +15,19 @@ class Festival
   field :zip, type: String
   field :coordinates, type: Array
 
+  validates_presence_of :name, :type, :street, :city, :state, :zip
+
+  validates :name, length: { minimum: 5 }
+  validates :street, length: { minimum: 5}
+  validates :state, length: { is: 2 }
+  validates :zip, length: { is: 5 }, numericality: { only_integer: true }
+
   def address
     self.street + " " + self.city + " " + self.state + " " + self.zip
   end 
 
-  validates_presence_of :name, :type, :fest_date, :start_time, :end_time, :neighborhood, :street, :city, :state, :zip
+  
+
 
   geocoded_by :address
   after_validation :geocode
