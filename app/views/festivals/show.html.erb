@@ -12,6 +12,15 @@ Address: <%= @festival.street %>, <%= @festival.city %>, <%= @festival.state %>,
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
+<br>
+<% if @festival.updated_by_id != nil %>
+  Last updated by: <%= @festival.updated_by_id %>
+<% end %>
+<br>
+<% if @festival.created_by_id != nil %>
+  Created by: <%= @festival.created_by_id %>
+<% end %>
+<br>
 <%= link_to "Update this festival", edit_festival_path(@festival) %>
 <br>
 <% if current_user.is_admin? %>

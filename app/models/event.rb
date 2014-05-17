@@ -14,6 +14,8 @@ class Event
   field :state, type: String
   field :zip, type: String
   field :coordinates, type: Array
+  field :updated_by_id, type: Integer
+  field :created_by_id, type: Integer
 
   validates_length_of :name, minimum: 4, message: "Please enter a valid event name"
   validates_presence_of :type, message: "Please enter an event type"
