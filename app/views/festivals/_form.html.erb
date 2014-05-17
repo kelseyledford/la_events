@@ -12,9 +12,9 @@
 
 <%= bootstrap_form_for(@festival, layout: :inline) do |f| %>
 
-<%= f.text_field :name, placeholder: 'Name' %>
+<%= f.text_field :name, placeholder: 'Name', label: "Festival Name *" %>
 <br>
-<%= f.text_field :type, placeholder: 'Type' %>
+<%= f.text_field :type, placeholder: 'e.g. Food, Cultural', label: "Type *" %>
 <br>
 <%= f.date_select :fest_date, :order => [:day, :month, :year], label: 'Festival Date' %>
 <br>
@@ -23,17 +23,18 @@
 <%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
 <br>
 <%= f.label "Neighborhood" %>
+<br>
 <%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
 <br>
 <%= f.text_area :details, {size: "30x10"} %>
 <br>
 <br>
-<%= f.text_field :street, placeholder: 'Street Address', label: 'Address' %>
+<%= f.text_field :street, placeholder: 'Street Address', label: 'Address *' %>
 <br>
-<%= f.text_field :city, placeholder: 'City' %>
-<%= f.text_field :state, placeholder: 'State', :value => 'CA' %>
+<%= f.text_field :city, placeholder: 'City', label: 'City *' %>
+<%= f.text_field :state, :value => 'CA', label: 'State *' %>
 <br>
-<%= f.text_field :zip, placeholder: 'Zip Code', label: 'Zip Code' %>
+<%= f.text_field :zip, placeholder: 'Zip Code', label: 'Zip Code *' %>
 <br>
 <%= f.submit %>
 

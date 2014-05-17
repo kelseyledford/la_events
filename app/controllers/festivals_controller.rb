@@ -1,4 +1,4 @@
-class FestivalsController < ApplicationController
+class FestivalsController < EventsController
 
 	before_action :authenticate_user
 	before_filter :set_timezone

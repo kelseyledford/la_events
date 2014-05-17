@@ -3,5 +3,5 @@ class Neighborhood
 
   field :name, type: String
 
-  has_many :festivals
+  has_many :events
 end
