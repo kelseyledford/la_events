@@ -33,6 +33,7 @@ class FestivalsController < EventsController
 
 	def show
 		@festival = Festival.find(params[:id])
+		
 	end
 
 	def edit

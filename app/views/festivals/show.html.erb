@@ -14,7 +14,9 @@ Address: <%= @festival.street %>, <%= @festival.city %>, <%= @festival.state %>,
 </div>
 <%= link_to "Update this festival", edit_festival_path(@festival) %>
 <br>
-<%= link_to "Delete this festival", @festival, method: :delete, data: { confirm: 'Are you sure you want to delete this festival?' } %>
+<% if current_user.is_admin? %>
+  <%= link_to "Delete this festival", @festival, method: :delete, data: { confirm: 'Are you sure you want to delete this festival?' } %>
+<% end %>
 <br>
 <%= link_to "Back to the Events Page", festivals_path %>
 
