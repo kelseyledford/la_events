@@ -66,4 +66,8 @@ class FestivalsController < EventsController
     redirect_to festivals_path
   end
 
+  def nav
+		@show_nav = true
+	end
+
 end

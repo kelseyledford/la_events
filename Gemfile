@@ -8,7 +8,6 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'bootstrap_form'
-gem "combined_time_select", "~> 1.0.1"
 gem 'rails_12factor'
 gem 'validates_email_format_of', :git => 'git://github.com/alexdunae/validates_email_format_of.git'
 # Use SCSS for stylesheets

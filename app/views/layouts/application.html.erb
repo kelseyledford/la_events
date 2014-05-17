@@ -19,18 +19,19 @@
 	<script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
+
+
+<body>
 	<% flash.each do |key, value| %>
 		<%= value %>
 	<% end %>
+	
 	<%= yield %>
+
 	<br>
   <% if !current_user %>
     <p><%= link_to "Sign Up", new_user_path %></p>
     <p><%= link_to "Sign In", new_sessions_path %></p>
-  <% else %>
-    <p>Hello, <%= current_user.name %></p>
-    <p><%= link_to "Sign Out", sessions_path, :method => :delete %></p>
   <% end %>
 </body>
 </html>

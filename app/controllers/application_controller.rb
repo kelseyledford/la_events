@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !self.current_user
-      redirect_to new_sessions_path
+      render "shared/home"
     end
   end
 

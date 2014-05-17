@@ -1,14 +1,14 @@
-<%#Show some errors %>
-<% if @festival.errors.any? %>
-	<h2><%= pluralize(@festival.errors.count, "error") %>
-	<ul class="list-group">
-		<% @festival.errors.messages.each do |message| %>
-		<li class="list-group-item list-group-item-danger">
-			<%= message[1][0] %>
-		</li>
+<div class="container">
+	<% if @festival.errors.any? %>
+		<h2><%= pluralize(@festival.errors.count, "error") %>
+		<ul class="list-group">
+			<% @festival.errors.messages.each do |message| %>
+			<li class="list-group-item list-group-item-danger">
+				<%= message[1][0] %>
+			</li>
+		<% end %>
+		</ul> 
 	<% end %>
-	</ul> 
-<% end %>
 
 <%= bootstrap_form_for(@festival, layout: :inline) do |f| %>
 
@@ -41,3 +41,5 @@
 <% end %>
 
 <%= link_to "Back to the festivals page", festivals_path %>
+
+</div>
