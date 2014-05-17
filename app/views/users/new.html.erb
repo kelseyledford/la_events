@@ -14,4 +14,7 @@
   Password (minimum 5 characters): <%= f.password_field :password %>
   <br>
   Confirm password: <%= f.password_field :password_confirmation %>
+  <br>
+  Admin: <%= f.check_box :is_admin? %>
+  <%= f.submit %>
 <% end %>
