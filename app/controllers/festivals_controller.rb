@@ -24,6 +24,7 @@ class FestivalsController < ApplicationController
 		end_time = params[:festival]
 		@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		if @festival.save
+			flash[:created] = "Event created"
 			redirect_to festivals_path
 		else
 			render action: 'new'
@@ -48,6 +49,7 @@ class FestivalsController < ApplicationController
 			@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 			@festival.save
+			flash[:updated] = "Event updated"
 			redirect_to festivals_path
 		else
 			render 'edit'
@@ -57,6 +59,7 @@ class FestivalsController < ApplicationController
 	def destroy
     @festival = Festival.find(params[:id])
     @festival.destroy
+    flash[:deleted] = "Event deleted"
     redirect_to festivals_path
   end
 

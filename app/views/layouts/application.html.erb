@@ -19,7 +19,10 @@
 	<script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="container">
+	<% flash.each do |key, value| %>
+		<%= value %>
+	<% end %>
 	<%= yield %>
 	<br>
   <% if !current_user %>

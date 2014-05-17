@@ -8,9 +8,11 @@ class User
 
   has_secure_password
 
-  validates :name, uniqueness: true, length: { minimum: 3}
-  validates :email, presence: true, uniqueness: true
-  validates :password, length: { minimum: 5 }
+  validates :name, :presence => { :message => "Please enter a username"}, :uniqueness => { :message => "Username is taken" }
+  validates :email, :presence => { :message => "Please enter an email address"}, :uniqueness => { :message => "Email address is already registered" }
+  validates_email_format_of :email, :message => "Please enter a valid email address"
+  validates_presence_of :email, :message => "Please complete the form"
+  validates_length_of :password, :minimum => 5, :message => "Password is too short (minimum 5 characters)"
 
   def password
     @password

@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
       render 'new'
     else
       session[:remember_token] = @user.id.to_s
+      # Is there a less hacky way to get rid of the flash?
+      flash[:none] = ""
       @current_user = @user
       redirect_to root_path
     end

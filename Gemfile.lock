@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexdunae/validates_email_format_of.git
+  revision: f2b20985865069905ba58580bfcfb41c198107b6
+  specs:
+    validates_email_format_of (1.5.3)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: aa2c82e804ef6a3ba44dfa4bd9b357017762a768
   specs:
@@ -168,3 +174,4 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  validates_email_format_of!

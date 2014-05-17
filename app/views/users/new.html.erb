@@ -1,11 +1,17 @@
 <h1>New User</h1>
 
+<% if @user.errors.any? %>
+    <% @user.errors.each do |attr, msg| %>
+      <p><%= msg %><p>
+    <% end %>
+<% end %>
+
 <%= form_for @user do |f| %>
   Username: <%= f.text_field :name %>
   <br>
   Email: <%= f.text_field :email %>
   <br>
-  Password: <%= f.password_field :password %>
+  Password (minimum 5 characters): <%= f.password_field :password %>
   <br>
   Confirm password: <%= f.password_field :password_confirmation %>
   <br>
