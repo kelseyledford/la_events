@@ -16,7 +16,6 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
-			<th>Type</th>
 			<th>Neighborhood</th>
 			<th>More Info</th>
 		</tr>
@@ -28,7 +27,6 @@
 			<td style="display: none"><%= festival.start_time %></td>
 			<td><%= festival.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= festival.name %></strong></td>
-			<td><%= festival.type %></td>
 			<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', festival %></td>
 		</tr>

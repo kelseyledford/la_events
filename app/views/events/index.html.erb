@@ -16,7 +16,6 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
-			<th>Type</th>
 			<th>Neighborhood</th>
 			<th>More Info</th>
 		</tr>
@@ -28,7 +27,6 @@
 			<td style="display: none"><%= event.start_time %></td>
 			<td><%= event.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= event.name %></strong></td>
-			<td><%= event.type %></td>
 			<td><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', event %></td>
 		</tr>

@@ -16,7 +16,7 @@ class FestivalsController < EventsController
 	end
 
 	def create
-		@festival = Festival.new(params.require(:festival).permit(:name, :type, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
+		@festival = Festival.new(params.require(:festival).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
  		fest_date = params[:festival]
 		@festival.fest_date = Date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
 		start_time = params[:festival]
@@ -46,7 +46,7 @@ class FestivalsController < EventsController
 		fest_date = params[:festival]
 		start_time = params[:festival]
 		end_time = params[:festival]
-		if @festival.update_attributes (params.require(:festival).permit(:name, :type, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
+		if @festival.update_attributes (params.require(:festival).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
 			@festival.update_attributes(:updated_by_id => current_user.id)
 			@festival.fest_date = fest_date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
 			@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
