@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $(".events_list").dataTable( 
+  $("#events_list").dataTable( 
   	"aoColumns": [
   		null,
   		null,
