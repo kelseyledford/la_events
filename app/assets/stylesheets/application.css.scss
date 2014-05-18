@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ //= require foundation_and_overrides
+
  //= require rails_bootstrap_forms
  */
 
@@ -19,4 +21,78 @@
 
 .container-fluid {
 	padding-top: 50px;
+}
+
+#welcome_img {
+	width: 750px;
+	border: 1px solid black;
+	padding: 15px;
+	display: block;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/*margin-top: 50px;*/
+}
+
+#welcome_logo {
+	font-family: 'Satisfy', cursive;
+	font-size: 8em;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-align: center;
+	width: 500px;
+	position: fixed;
+	margin: auto;
+	margin-top: 100px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+/*	display: block;
+	left: 50%;*/
+/*	margin-left: -50px;*/
+}
+
+.home_text {
+	font-family: 'Satisfy', cursive;
+	font-size: 3em;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-align: center;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top: 325px;
+}
+
+a.home_link {
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.sign_logo_set {
+	font-family: 'Satisfy', cursive;
+	text-align: center;
+	margin-top: 15%;
+	color: rgb(119, 151, 195);
+	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+.sign_events_logo {
+	font-size: 6em;
+}
+
+.sign_logo {
+	font-size: 3em;
+}
+
+.nav_events {
+	list-style-type: none;
+	display: inline;
 }

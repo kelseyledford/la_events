@@ -16,13 +16,13 @@ class FestivalsController < EventsController
 	end
 
 	def create
-		@festival = Festival.new(params.require(:festival).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
- 		fest_date = params[:festival]
-		@festival.fest_date = Date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
+		@festival = Festival.new(params.require(:festival).permit(:name, :price, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+ 		event_date = params[:festival]
+		@festival.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 		start_time = params[:festival]
 		@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 		end_time = params[:festival]
-		@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
+		@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		if @festival.save
 			@festival.update_attributes(:created_by_id => current_user.id)
 			flash[:created] = "Event created"
@@ -43,12 +43,12 @@ class FestivalsController < EventsController
 
 	def update
 		@festival = Festival.find(params[:id])
-		fest_date = params[:festival]
+		event_date = params[:festival]
 		start_time = params[:festival]
 		end_time = params[:festival]
-		if @festival.update_attributes (params.require(:festival).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
+		if @festival.update_attributes (params.require(:festival).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
 			@festival.update_attributes(:updated_by_id => current_user.id)
-			@festival.fest_date = fest_date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
+			@festival.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 			@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 			@festival.save

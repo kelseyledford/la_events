@@ -1,6 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
-	  <%= render partial: "shared/navbar" %>
-</nav>
+<%= render partial: "shared/navbar" %>
 
 <% flash.each do |key, value| %>
     <%= value %>
@@ -16,6 +14,7 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
+			<th>Price</th>
 			<th>Neighborhood</th>
 			<th>More Info</th>
 		</tr>
@@ -23,10 +22,11 @@
 		<tbody>
 		<% @events.each do |event| %>
 		<tr>
-			<td><%= event.fest_date.strftime("%m/%d/%y") %></td>
+			<td><%= event.event_date.strftime("%m/%d/%y") %></td>
 			<td style="display: none"><%= event.start_time %></td>
 			<td><%= event.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= event.name %></strong></td>
+			<td><%= event.price %></td>
 			<td><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', event %></td>
 		</tr>

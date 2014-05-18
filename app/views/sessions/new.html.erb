@@ -1,12 +1,16 @@
-<!-- Make this the main page! -->
-
-<h1>Login</h1>
-
-<%= bootstrap_form_for :session, :url => sessions_path do |f| %>
- 	<%= f.text_field :email %>
-  <br>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.submit "Login" %>
-<% end %>
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 sign_logo_set">
+			<h1 class="sign_events_logo">L.A. Events</h1>
+			<h2 class="sign_logo">Sign In</h2>
+		</div>
+		<div class="col-md-6 sign_in_form">
+		<%= bootstrap_form_for :session, :url => sessions_path do |f| %>
+		 	<%= f.text_field :email %>
+		  <%= f.password_field :password %>
+		  <br>
+		  <%= f.submit "Sign In" %>
+		<% end %>
+		</div>
+	</div>
+</div>

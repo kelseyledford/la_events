@@ -14,7 +14,9 @@
 
 <%= f.text_field :name, placeholder: 'Name', label: "Festival Name *" %>
 <br>
-<%= f.date_select :fest_date, :order => [:day, :month, :year], label: 'Festival Date' %>
+<%= f.text_field :price, placeholder: 'Price', label: "Price *" %>
+<br>
+<%= f.date_select :event_date, :order => [:day, :month, :year], label: 'Festival Date' %>
 <br>
 <%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
 <br>
