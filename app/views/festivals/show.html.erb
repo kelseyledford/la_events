@@ -2,6 +2,10 @@
     <%= render partial: "shared/navbar" %>
 </nav>
 
+<% flash.each do |key, value| %>
+    <%= value %>
+<% end %>
+
 <div class="container">
   <h1><%= @festival.name %></h1>
 

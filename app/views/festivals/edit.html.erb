@@ -2,6 +2,10 @@
 	  <%= render partial: "shared/navbar" %>
 </nav>
 
+<% flash.each do |key, value| %>
+    <%= value %>
+<% end %>
+
 <h1>Edit this Event</h1>
 
 <%= render partial: "form" %>

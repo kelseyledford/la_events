@@ -8,17 +8,18 @@
 
 Neighborhood.destroy_all
 
-Neighborhood.create(name: 'Westside')
+dt = Neighborhood.create(name: 'Downtown')
+el = Neighborhood.create(name: 'East LA')
+hb = Neighborhood.create(name: 'Hollywood/Beverly Hills')
+ws = Neighborhood.create(name: 'Westside')
 sb = Neighborhood.create(name: 'South Bay')
-Neighborhood.create(name: 'Long Beach')
-Neighborhood.create(name: 'Downtown')
-Neighborhood.create(name: 'Orange County')
-v = Neighborhood.create(name: 'The Valley')
-Neighborhood.create(name: 'East LA')
-Neighborhood.create(name: 'Mid-City')
-Neighborhood.create(name: 'Etc.')
+lb =Neighborhood.create(name: 'Long Beach')
+oc = Neighborhood.create(name: 'Orange County')
+sfv = Neighborhood.create(name: 'San Fernando Valley')
+sgv = Neighborhood.create(name: 'San Gabriel Valley')
+etc = Neighborhood.create(name: 'Etc.')
 
 Festival.destroy_all
 
-Festival.create(name: 'Ramen Festival', type: 'Food', fest_date: '7/21/2014', start_time: '11:00', end_time: '14:00', details: 'Bring your appetite!', street: '285 W Huntington Drive', city: 'Arcadia', state: 'CA', zip: '91007', neighborhood: v)
+Festival.create(name: 'Ramen Festival', type: 'Food', fest_date: '7/21/2014', start_time: '11:00', end_time: '14:00', details: 'Bring your appetite!', street: '285 W Huntington Drive', city: 'Arcadia', state: 'CA', zip: '91007', neighborhood: sgv)
 Festival.create(name: 'Fireworks', type: 'Holiday', fest_date: '7/4/2014', start_time: '21:00', end_time: '24:00', details: 'Come celebrate Independence Day with us!', street: '100 W. Torrance Blvd.', city: 'Redondo Beach', state: 'CA', zip: '90277', neighborhood: sb)

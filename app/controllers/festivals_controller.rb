@@ -48,12 +48,12 @@ class FestivalsController < EventsController
 		end_time = params[:festival]
 		if @festival.update_attributes (params.require(:festival).permit(:name, :type, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
 			@festival.update_attributes(:updated_by_id => current_user.id)
-			@festival.fest_date = Date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
+			@festival.fest_date = fest_date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
 			@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 			@festival.save
 			flash[:updated] = "Event updated"
-			redirect_to festivals_path
+			redirect_to @festival
 		else
 			render 'edit'
 		end
@@ -65,9 +65,5 @@ class FestivalsController < EventsController
     flash[:deleted] = "Event deleted"
     redirect_to festivals_path
   end
-
-  def nav
-		@show_nav = true
-	end
 
 end

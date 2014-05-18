@@ -7,7 +7,7 @@
 <% end %>
 
 <div class= "container">
-	<h1>Los Angeles Festivals</h1>
+	<h1>Art Events</h1>
 	<br>
 	<table class="events_list table table-bordered table-responsive table-condensed table-hover">
 		<thead>
@@ -16,25 +16,24 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
-			<th>Type</th>
 			<th>Neighborhood</th>
 			<th>More Info</th>
 		</tr>
 		</thead>
 		<tbody>
-		<% @festivals.each do |festival| %>
+		<% @artevents.each do |artevent| %>
 		<tr>
-			<td><%= festival.fest_date.strftime("%m/%d/%y") %></td>
-			<td style="display: none"><%= festival.start_time %></td>
-			<td><%= festival.start_time.strftime("%l:%M%P") %></td>
-			<td><strong><%= festival.name %></strong></td>
-			<td><%= festival.type %></td>
-			<td><% if festival.neighborhood %><%= festival.neighborhood.name %><% end %></td>
-			<td><%= link_to 'Details', festival %></td>
+			<td><%= artevent.fest_date.strftime("%m/%d/%y") %></td>
+			<td style="display: none"><%= artevent.start_time %></td>
+			<td><%= artevent.start_time.strftime("%l:%M%P") %></td>
+			<td><strong><%= artevent.name %></strong></td>
+			<td><%= artevent.type %></td>
+			<td><% if artevent.neighborhood %><%= artevent.neighborhood.name %><% end %></td>
+			<td><%= link_to 'Details', art_event %></td>
 		</tr>
 		<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'New festival', new_festival_path %>
+	<%= link_to 'New Event', new_art_event_path %>
 </div>

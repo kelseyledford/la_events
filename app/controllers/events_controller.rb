@@ -15,8 +15,4 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 	end
 
-	def nav
-		@show_nav = true
-	end
-
 end
