@@ -16,7 +16,7 @@ class ArtEventsController < EventsController
 	end
 
 	def create
-		@artevent = ArtEvent.new(params.require(:artevent).permit(:name, :type, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
+		@artevent = ArtEvent.new(params.require(:artevent).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
  		fest_date = params[:artevent]
 		@artevent.fest_date = Date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
 		start_time = params[:artevent]
@@ -46,7 +46,7 @@ class ArtEventsController < EventsController
 		fest_date = params[:artevent]
 		start_time = params[:artevent]
 		end_time = params[:artevent]
-		if @artevent.update_attributes (params.require(:artevent).permit(:name, :type, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
+		if @artevent.update_attributes (params.require(:artevent).permit(:name, :neighborhood, :details, :street, :city, :state, :zip, :latitude, :longitude, :coordinates))
 			@artevent.update_attributes(:updated_by_id => current_user.id)
 			@artevent.fest_date = fest_date.new fest_date["fest_date(1i)"].to_i, fest_date["fest_date(2i)"].to_i, fest_date["fest_date(3i)"].to_i
 			@artevent.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i

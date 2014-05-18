@@ -4,7 +4,6 @@ class Event
   include Geocoder::Model::Mongoid
 
   field :name, type: String
-  field :type, type: String
   field :fest_date, type: Date
   field :start_time, type: Time
   field :end_time, type: Time
@@ -18,7 +17,6 @@ class Event
   field :created_by_id, type: Integer
 
   validates_length_of :name, minimum: 4, message: "Please enter a valid event name"
-  validates_presence_of :type, message: "Please enter an event type"
   validates_length_of :street, minimum: 5, message: "Please enter a valid street address"
   validates_presence_of :city, message: "Please enter a city"
   validates_length_of :state, is: 2, message: "Please enter a valid state"

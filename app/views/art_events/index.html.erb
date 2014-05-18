@@ -27,7 +27,6 @@
 			<td style="display: none"><%= artevent.start_time %></td>
 			<td><%= artevent.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= artevent.name %></strong></td>
-			<td><%= artevent.type %></td>
 			<td><% if artevent.neighborhood %><%= artevent.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', art_event %></td>
 		</tr>

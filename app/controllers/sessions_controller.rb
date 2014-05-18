@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       # Is there a less hacky way to get rid of the flash?
       flash[:none] = ""
       @current_user = @user
-      redirect_to root_path
+      redirect_to events_path
     end
 
   end
