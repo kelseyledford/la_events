@@ -26,7 +26,7 @@ class ArtEventsController < EventsController
 		if @artevent.save
 			@artevent.update_attributes(:created_by_id => current_user.id)
 			flash[:created] = "Event created"
-			redirect_to festivals_path
+			redirect_to art_events_path
 		else
 			render action: 'new'
 		end
@@ -53,7 +53,7 @@ class ArtEventsController < EventsController
 			@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 			@artevent.save
 			flash[:updated] = "Event updated"
-			redirect_to :back
+			redirect_to @artevent
 		else
 			render 'edit'
 		end
