@@ -23,7 +23,7 @@ class ArtEventsController < EventsController
 		@artevent.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 		end_time = params[:art_event]
 		@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
-		@concert.created_by_id = @current_user.name
+		@artevent.created_by_id = @current_user.name
 		if @artevent.save
 			flash[:success] = "Event created"
 			redirect_to art_events_path
