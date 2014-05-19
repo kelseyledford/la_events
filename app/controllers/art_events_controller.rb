@@ -16,7 +16,7 @@ class ArtEventsController < EventsController
 	end
 
 	def create
-		@artevent = ArtEvent.new(params.require(:art_event).permit(:name, :price, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		@artevent = ArtEvent.new(params.require(:art_event).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
  		event_date = params[:art_event]
 		@artevent.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 		start_time = params[:art_event]
@@ -25,7 +25,7 @@ class ArtEventsController < EventsController
 		@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		if @artevent.save
 			@artevent.update_attributes(:created_by_id => current_user.id)
-			flash[:created] = "Event created"
+			flash[:success] = "Event created"
 			redirect_to art_events_path
 		else
 			render action: 'new'
@@ -52,7 +52,7 @@ class ArtEventsController < EventsController
 			@artevent.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 			@artevent.save
-			flash[:updated] = "Event updated"
+			flash[:success] = "Event updated"
 			redirect_to @artevent
 		else
 			render 'edit'
@@ -62,7 +62,7 @@ class ArtEventsController < EventsController
 	def destroy
     @artevent = ArtEvent.find(params[:id])
     @artevent.destroy
-    flash[:deleted] = "Event deleted"
+    flash[:success] = "Event deleted"
     redirect_to artevents_path
   end
 

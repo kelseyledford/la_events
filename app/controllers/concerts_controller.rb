@@ -16,7 +16,7 @@ class ConcertsController < EventsController
 	end
 
 	def create
-		@concert = Concert.new(params.require(:concert).permit(:name, :price, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		@concert = Concert.new(params.require(:concert).permit(:name, :neighborhood, :price, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
  		event_date = params[:concert]
 		@concert.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 		start_time = params[:concert]
