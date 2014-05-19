@@ -39,7 +39,7 @@
         <%= @con.created_by_id %>
       <% end %>
       <br><br>
-      <%= link_to "Update This Event", edit_concert_path(@con) %>
+      <%= link_to "Update This Event", edit_con_path(@con) %>
       <br><br>
       <% if current_user.is_admin? %>
         <%= link_to "Delete This Event", @con, method: :delete, data: { confirm: 'Are you sure you want to delete this festival?' } %>
