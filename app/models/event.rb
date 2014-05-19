@@ -2,6 +2,9 @@ class Event
  
   include Mongoid::Document
   include Geocoder::Model::Mongoid
+  include Mongoid::Paperclip
+
+  has_mongoid_attached_file :image
 
   field :name, type: String
   field :event_date, type: Date
@@ -23,6 +26,7 @@ class Event
   validates_presence_of :city, message: "Please enter a city"
   validates_length_of :state, is: 2, message: "Please enter a valid state"
   validates :zip, length: { is: 5, message: "Zipcode is too short" }, numericality: { only_integer: true, message: "Please enter a valid zip code" }
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def address
     self.street + " " + self.city + " " + self.state + " " + self.zip

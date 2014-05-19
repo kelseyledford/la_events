@@ -16,7 +16,7 @@ class ConsController < EventsController
 	end
 
 	def create
-		@con = Con.new(params.require(:con).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		@con = Con.new(params.require(:con).permit(:image, :name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
  		event_date = params[:con]
 		@con.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 		start_time = params[:con]
@@ -46,7 +46,7 @@ class ConsController < EventsController
 		event_date = params[:con]
 		start_time = params[:con]
 		end_time = params[:con]
-		if @con.update_attributes (params.require(:con).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		if @con.update_attributes (params.require(:con).permit(:image, :name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
 			@con.updated_by_id = @current_user.name
 			@con.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 			@con.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
