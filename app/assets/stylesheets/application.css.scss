@@ -12,12 +12,14 @@
  *
  *= require_tree .
  *= require_self
- //= require foundation_and_overrides
-
  //= require rails_bootstrap_forms
  */
 
 @import "bootstrap";
+
+body {
+	font-family: 'Merriweather', serif;
+}
 
 .container-fluid {
 	padding-top: 50px;
@@ -92,7 +94,63 @@ a.home_link {
 	font-size: 3em;
 }
 
-.nav_events {
+.event_nav {
+	background-image: url('../assets/eventnav.png');
+	height: 100px;
+}
+
+.art_nav {
+	background-image: url('../assets/artnav.png');
+	height: 100px;
+}
+
+.fest_nav {
+	background-image: url('../assets/festnav.png');
+	height: 100px;
+}
+
+nav {
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+nav ul {
 	list-style-type: none;
-	display: inline;
+}
+
+nav li {
+	display: inline; 
+}
+
+.nav_home {
+	margin-left: 5%;
+}
+
+a.nav_links {
+	color: white;
+}
+
+.nav_links {
+	padding: 5px;
+}
+
+.nav_sign_out {
+	float: right;
+	margin-right: 1%;
+	font-family: 'Satisfy', cursive;
+	margin-top: 50px;
+	font-size: 2em;
+}
+
+.nav_logo {
+	font-family: 'Satisfy', cursive;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-size: 5em;
+}
+
+.header {
+	text-align: center;
+	font-family: 'Satisfy', cursive;
+	font-size: 4em;
 }

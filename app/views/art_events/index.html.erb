@@ -1,11 +1,14 @@
-<%= render partial: "shared/navbar" %>
+<nav class="art_nav"> 
+	<%= render partial: "shared/navbar" %>
+</nav>
+
 
 <% flash.each do |key, value| %>
     <%= value %>
 <% end %>
 
 <div class= "container">
-	<h1>Art Events</h1>
+	<h1 class="header">Art Events</h1>
 	<br>
 	<table class="events_list table table-bordered table-responsive table-condensed table-hover">
 		<thead>
