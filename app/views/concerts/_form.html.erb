@@ -16,11 +16,11 @@
 			<%= f.text_field :name, placeholder: 'Name', label: "Concert Name *" %>
 		</div>
 		<div class="form-group">
-			<%= f.date_select :event_date, :order => [:day, :month, :year], label: 'Concert Date' %>
+			<%= f.date_field :event_date, label: 'Concert Date' %>
 		</div>
 		<div class="form-inline form-group">
-			<%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
-			<%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
+			<%= f.time_field :start_time %>
+			<%= f.time_field :end_time %>
 				</div>
   	<div class="form-group">
 			<%= f.text_area :details, {size: "30x7"} %>
