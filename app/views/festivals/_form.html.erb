@@ -1,45 +1,54 @@
-<div class="container">
-	<% if @festival.errors.any? %>
-		<h2><%= pluralize(@festival.errors.count, "error") %>
-		<ul class="list-group">
-			<% @festival.errors.messages.each do |message| %>
-			<li class="list-group-item list-group-item-danger">
-				<%= message[1][0] %>
-			</li>
-		<% end %>
-		</ul> 
+<% if @festival.errors.any? %>
+	<h2><%= pluralize(@festival.errors.count, "error") %>
+	<ul class="list-group">
+		<% @festival.errors.messages.each do |message| %>
+		<li class="list-group-item list-group-item-danger">
+			<%= message[1][0] %>
+		</li>
 	<% end %>
-
-<%= bootstrap_form_for(@festival, layout: :inline) do |f| %>
-
-<%= f.text_field :name, placeholder: 'Name', label: "Festival Name *" %>
-<br>
-<%= f.text_field :price, placeholder: 'Price', label: "Price *" %>
-<br>
-<%= f.date_select :event_date, :order => [:day, :month, :year], label: 'Festival Date' %>
-<br>
-<%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
-<br>
-<%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
-<br>
-<%= f.label "Neighborhood" %>
-<br>
-<%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
-<br>
-<%= f.text_area :details, {size: "30x10"} %>
-<br>
-<br>
-<%= f.text_field :street, placeholder: 'Street Address', label: 'Address *' %>
-<br>
-<%= f.text_field :city, placeholder: 'City', label: 'City *' %>
-<%= f.text_field :state, :value => 'CA', label: 'State *' %>
-<br>
-<%= f.text_field :zip, placeholder: 'Zip Code', label: 'Zip Code *' %>
-<br>
-<%= f.submit %>
-
+	</ul> 
 <% end %>
 
-<%= link_to "Back to the festivals page", festivals_path %>
-
+<%= bootstrap_form_for @festival do |f| %>
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<%= f.text_field :name, placeholder: 'Name', label: "Festival Name *" %>
+		</div>
+		<div class="form-group">
+			<%= f.date_select :event_date, :order => [:day, :month, :year], label: 'Festival Date' %>
+		</div>
+		<div class="form-inline form-group">
+			<%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
+			<%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
+				</div>
+  	<div class="form-group">
+			<%= f.text_area :details, {size: "30x7"} %>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+		<%= f.text_field :price, placeholder: 'Price', label: "Price *" %>
+		</div>
+  	<div class="form-group">
+			<%= f.label "Neighborhood:" %>
+			<%= collection_select :festival, :neighborhood, Neighborhood.all, :id, :name %>
+		</div>
+  	<div class="form-group">
+			<%= f.text_field :street, placeholder: 'Street Address', label: 'Address *' %>
+		</div>
+  	<div class="form-group">
+			<%= f.text_field :city, placeholder: 'City', label: 'City *' %>
+		</div>
+  	<div class="form-group">	
+			<%= f.text_field :state, :value => 'CA', label: 'State *' %>
+		</div>
+  	<div class="form-group">
+			<%= f.text_field :zip, placeholder: 'Zip Code', label: 'Zip Code *' %>
+		</div>
+		<%= f.submit "Update Event" %>
+		<% end %>
+		<span class="spaced glyphicon glyphicon-chevron-left"></span>
+		<%= link_to "	Back to the Festivals Page", festivals_path %>
+	</div>
 </div>

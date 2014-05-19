@@ -2,11 +2,12 @@
 	<%= render partial: "shared/navbar" %>
 </nav>
 
+<div class="container">
+	<% flash.each do |key, value| %>
+	    <%= value %>
+	<% end %>
 
-<% flash.each do |key, value| %>
-    <%= value %>
-<% end %>
+	<h1 class="edit_header">Update This Event</h1>
 
-<h1>Edit this Event</h1>
-
-<%= render partial: "form" %>
+	<%= render partial: "form" %>
+</div>
