@@ -10,7 +10,7 @@
 		</ul> 
 	<% end %>
 
-<%= bootstrap_form_for(@artevent, layout: :inline) do |f| %>
+<%= bootstrap_form_for @artevent do |f| %>
 
 <%= f.text_field :name, placeholder: 'Name', label: "Event Name *" %>
 <br>
