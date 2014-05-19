@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events
   resources :festivals
   resources :art_events
+  resources :concerts
+  resources :cons
   resources :users, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.

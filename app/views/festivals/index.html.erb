@@ -2,10 +2,7 @@
 	<%= render partial: "shared/navbar" %>
 </nav>
 
-
-<% flash.each do |key, value| %>
-    <%= value %>
-<% end %>
+<%= render partial: "shared/flash" %>
 
 <div class= "container">
 	<h1 class="header">Festivals</h1>
@@ -37,5 +34,5 @@
 		</tbody>
 	</table>
 
-	<%= link_to 'New festival', new_festival_path %>
+	<%= link_to 'New Festival', new_festival_path %>
 </div>

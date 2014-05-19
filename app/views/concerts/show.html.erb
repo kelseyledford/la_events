@@ -1,48 +1,48 @@
-<nav class="fest_nav">  
+<nav class="concert_nav">  
   <%= render partial: "shared/navbar" %>
 </nav>
 
 <%= render partial: "shared/flash" %>
 
 <div class="container">
-  <h1 class="header"><%= @festival.name %></h1>
+  <h1 class="header"><%= @concert.name %></h1>
   <div class="row">
     <div class="col-md-6 show_col_1">
       <span class="glyphicon glyphicon-chevron-left"></span>
-      <%= link_to " Back to the Festivals Page", festivals_path %>
+      <%= link_to " Back to the Concerts Page", festivals_path %>
       <br><br>
       <p class="bold inline">Date:  </p>
-      <%= @festival.event_date.strftime("%m/%d/%y")%>
+      <%= @concert.event_date.strftime("%m/%d/%y")%>
       <br><br>
       <p class="bold inline">Time:  </p>
-      <%= @festival.start_time.strftime("%l:%M%p") %> - <%= @festival.end_time.strftime("%l:%M%p") %>
+      <%= @concert.start_time.strftime("%l:%M%p") %> - <%= @concert.end_time.strftime("%l:%M%p") %>
       <br><br>
       <p class="bold">Address:</p> 
-      <%= @festival.street %>, <%= @festival.city %>, <%= @festival.state %>, <%= @festival.zip %>
+      <%= @concert.street %>, <%= @concert.city %>, <%= @concert.state %>, <%= @concert.zip %>
       <br><br>
-      <p class="bold inline">Price: </p><%= @festival.price %>
+      <p class="bold inline">Price: </p><%= @concert.price %>
       <br><br>
-      <% if @festival.details != "" %>
+      <% if @concert.details != "" %>
        <p class="bold">Details:</p> 
-        <%= @festival.details %>
+        <%= @concert.details %>
       <% end %>
       <br><br>
-      <% if @festival.updated_by_id != nil %>
+      <% if @concert.updated_by_id != nil %>
         <em>Last updated by:</em> 
-        <%= @festival.updated_by_id %>
+        <%= @concert.updated_by_id %>
       <% end %>
-      <% if @festival.updated_by_id != nil && @festival.created_by_id != nil %>
+      <% if @concert.updated_by_id != nil && @concert.created_by_id != nil %>
         ~ 
       <% end %>
-      <% if @festival.created_by_id != nil %>
+      <% if @concert.created_by_id != nil %>
         <em>Created by:</em> 
-        <%= @festival.created_by_id %>
+        <%= @concert.created_by_id %>
       <% end %>
       <br><br>
-      <%= link_to "Update This Event", edit_festival_path(@festival) %>
+      <%= link_to "Update This Event", edit_concert_path(@concert) %>
       <br><br>
       <% if current_user.is_admin? %>
-        <%= link_to "Delete This Event", @festival, method: :delete, data: { confirm: 'Are you sure you want to delete this festival?' } %>
+        <%= link_to "Delete This Event", @concert, method: :delete, data: { confirm: 'Are you sure you want to delete this festival?' } %>
       <% end %>
     </div>
   <!-- Google Map goes here -->
@@ -56,13 +56,13 @@
     handler.buildMap({ provider: {zoom: 14, provider_key: "AIzaSyBnugBXbtHJ6qqIyILKqKPQ1l2rafKtjx0"}, internal: {id: 'map'}}, function(){
     markers = handler.addMarker(
       {
-        lat: <%= @festival.to_coordinates[0] %>,
-        lng: <%= @festival.to_coordinates[1] %>
+        lat: <%= @concert.to_coordinates[0] %>,
+        lng: <%= @concert.to_coordinates[1] %>
       }
     );
     handler.map.centerOn({
-        lat: <%= @festival.to_coordinates[0] %>,
-        lng: <%= @festival.to_coordinates[1] %>
+        lat: <%= @concert.to_coordinates[0] %>,
+        lng: <%= @concert.to_coordinates[1] %>
       });
   });
   </script>

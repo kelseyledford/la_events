@@ -2,9 +2,7 @@
   <%= render partial: "shared/navbar" %>
 </nav>
 
-<% flash.each do |key, value| %>
-    <%= value %>
-<% end %>
+<%= render partial: "shared/flash" %>
 
 <div class="container">
   <h1 class="header"><%= @artevent.name %></h1>
