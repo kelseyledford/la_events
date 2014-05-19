@@ -24,7 +24,7 @@ class ConcertsController < EventsController
 		end_time = params[:concert]
 		@concert.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		if @concert.save
-			@concert.update_attributes(:created_by_id => current_user.id)
+			@concert.created_by_id = @current_user.name
 			flash[:success] = "Event created"
 			redirect_to concerts_path
 		else
@@ -47,7 +47,7 @@ class ConcertsController < EventsController
 		start_time = params[:concert]
 		end_time = params[:concert]
 		if @concert.update_attributes (params.require(:concert).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
-			@concert.update_attributes(:updated_by_id => current_user.id)
+			@concert.updated_by_id = @current_user.name
 			@concert.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 			@concert.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@concert.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i

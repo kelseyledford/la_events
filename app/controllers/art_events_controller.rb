@@ -23,8 +23,8 @@ class ArtEventsController < EventsController
 		@artevent.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 		end_time = params[:art_event]
 		@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
+		@concert.created_by_id = @current_user.name
 		if @artevent.save
-			@artevent.update_attributes(:created_by_id => current_user.id)
 			flash[:success] = "Event created"
 			redirect_to art_events_path
 		else
@@ -47,7 +47,7 @@ class ArtEventsController < EventsController
 		start_time = params[:art_event]
 		end_time = params[:art_event]
 		if @artevent.update_attributes (params.require(:art_event).permit(:name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
-			@artevent.update_attributes(:updated_by_id => current_user.id)
+			@artevent.updated_by_id = @current_user.name
 			@artevent.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 			@artevent.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 			@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
