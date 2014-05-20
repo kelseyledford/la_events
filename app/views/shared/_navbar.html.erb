@@ -1,11 +1,24 @@
-<div id="nav_text">
-	<ul>
-	  <li class="nav_logo">L.A.Events</li>
-	  <li class="nav_home"><%= link_to "HOME", events_path, :class => "nav_links" %></li>
-	  <li><%= link_to "FESTIVALS", festivals_path, :class => "nav_links" %></li>
-	  <li><%= link_to "ART EVENTS", art_events_path, :class => "nav_links" %></li>
-	  <li><%= link_to "CONCERTS", concerts_path, :class => "nav_links" %></li>
-	  <li><%= link_to "GEEK EVENTS", cons_path, :class => "nav_links" %></li>
-	  <li class="nav_sign_out"><%= link_to "Sign Out", sessions_path, :method => :delete, :class => "nav_links" %></li>
-	</ul>
-</div>
+<div class="container-fluid nav_text">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <h1 class="nav_logo">L.A. Events</h1>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class "nav navbar-nav nav_links_all">
+      <li class="nav_links"><%= link_to "All Events", events_path, :class => 'nav_link_color' %></li>
+      <li class="nav_links"><%= link_to "Festivals", festivals_path, :class => 'nav_link_color' %></li>
+      <li class="nav_links"><%= link_to "Art Events", art_events_path, :class => 'nav_link_color' %></li>
+      <li class="nav_links"><%= link_to "Concerts", concerts_path, :class => 'nav_link_color' %></li>
+      <li class="nav_links"><%= link_to "Geek Events", cons_path, :class => 'nav_link_color' %></li>
+      <li><%= link_to "Sign Out", sessions_path, :method => :delete, :class => "nav_sign_out home_link" %></li>
+      </ul>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
