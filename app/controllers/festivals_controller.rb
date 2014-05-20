@@ -16,12 +16,12 @@ class FestivalsController < EventsController
 	end
 
 	def create
-		@festival = Festival.new(params.require(:festival).permit(:image, :name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		@festival = Festival.new(event_params)
  		event_date = params[:festival]
-		@festival.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 		start_time = params[:festival]
-		@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 		end_time = params[:festival]
+		@festival.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
+		@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
 		@festival.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		@festival.created_by_id = @current_user.name
 		if @festival.save
@@ -46,7 +46,7 @@ class FestivalsController < EventsController
 		event_date = params[:festival]
 		start_time = params[:festival]
 		end_time = params[:festival]
-		if @festival.update_attributes (params.require(:festival).permit(:image, :name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id))
+		if @festival.update_attributes (event_params)
 			@festival.updated_by_id = @current_user.name
 			@festival.event_date = Date.new event_date["event_date(1i)"].to_i, event_date["event_date(2i)"].to_i, event_date["event_date(3i)"].to_i
 			@festival.start_time = Time.new 1900, 1, 1, start_time["start_time(4i)"].to_i, start_time["start_time(5i)"].to_i
@@ -64,6 +64,12 @@ class FestivalsController < EventsController
     @festival.destroy
     flash[:success] = "Event deleted"
     redirect_to festivals_path
+  end
+
+  private
+
+  def event_params
+  	params.require(:festival).permit(:image, :name, :price, :neighborhood, :details, :street, :city, :state, :zip, :coordinates, :updated_by_id, :created_by_id)
   end
 
 end

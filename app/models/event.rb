@@ -4,7 +4,7 @@ class Event
   include Geocoder::Model::Mongoid
   include Mongoid::Paperclip
 
-  has_mongoid_attached_file :image
+  has_mongoid_attached_file :image, :styles => { :thumb => "100x100#", :small  => "150x150>"}
 
   field :name, type: String
   field :event_date, type: Date
