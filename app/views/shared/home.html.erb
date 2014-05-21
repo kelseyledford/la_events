@@ -1,11 +1,11 @@
 <!-- Main postcard-style image -->
-<img src="../assets/welcome.jpg" id="welcome_img" class="img-responsive center-block" ></img>
+<img src="../assets/welcome.jpg" id="home_img" class="img-responsive center-block" ></img>
 
 <!-- Text that is positioned over the image and restyled as the page collapses -->
-<div class="welcome_div">
-	 <h1 id="welcome_logo">L.A. Events</h1>
+<div class="home_text_div">
+	 <h1 id="home_logo">L.A. Events</h1>
 
-	 <p class="home_text"><%= link_to "Sign Up", new_user_path, :class => "home_link" %> ~ <%= link_to "Sign In", new_sessions_path, :class => "home_link" %></p>
+	 <p class="home_sign_in_up"><%= link_to "Sign Up", new_user_path, :class => "home_link" %> ~ <%= link_to "Sign In", new_sessions_path, :class => "home_link" %></p>
 </div>
 
 <!-- Stays at the bottom center of the page at any size screen -->

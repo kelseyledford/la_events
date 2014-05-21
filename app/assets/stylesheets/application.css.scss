@@ -17,83 +17,53 @@
 
 @import "bootstrap";
 
-body {
-	font-family: 'Merriweather', serif;
-}
+/* HOME PAGE*/
 
-.container-fluid {
-	padding-top: 50px;
-}
-
-#welcome_img {
+/* Image on home page */
+#home_img {
 	width: 750px;
 	border: 1px solid black;
 	padding: 15px;
-/*	display: block;*/
 	position: relative;
-/*	margin: auto;*/
 	margin-top: 50px;
 }
 
-.welcome_div {
+/* Div for the text that is placed over the top of the home page image */
+.home_text_div {
 	width: 80%;
 	position: absolute;
 	top: 0;
 	margin-left: 10%;
 	margin-top: 50px;
-/*	width: 750px;
-	height: 520px;*/
-/*	position: absolute;
-	top: 0;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-top: 50px;
-	text-align: center;*/
 }
 
-#welcome_logo {
+/* LA Events logo on the home page */
+#home_logo {
 	font-family: 'Satisfy', cursive;
 	font-size: 8em;
 	color: white;
 	text-align: center;
 	margin-top: 6%;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-/*	text-align: center;*/
-	/*width: 500px;*/
-/*	position: fixed;
-	margin: auto;
-	margin-top: 100px;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;*/
-/*	display: block;
-	left: 50%;*/
-/*	margin-left: -50px;*/
 }
 
-.home_text {
+/* Sign in and sign up links on home page */
+.home_sign_in_up {
 	font-family: 'Satisfy', cursive;
 	font-size: 3em;
 	color: white;
 	text-align: center;
 	margin-top: 11%;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-/*	text-align: center;*/
-	/*position: fixed;*/
-/*	margin: auto;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin-top: 325px;*/
 }
 
+/* Changes color of sign in/sign up links from default */
 a.home_link {
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+/* Created by label at the bottom of the home page */
 .created_by {
 	font-family: 'Satisfy', cursive;
 	clear: both;
@@ -103,6 +73,159 @@ a.home_link {
 	bottom: 0;
 	width: 100%;
 	text-align: center;
+}
+
+
+/* SIGN IN/UP PAGES */
+
+/* Both LA Events and sign in/sign up logos*/
+.sign_logo_set {
+	font-family: 'Satisfy', cursive;
+	text-align: center;
+	margin-top: 15%;
+	color: rgb(119, 151, 195);
+	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+/* LA Events logo on sign in and sign up pages */
+.sign_events_logo {
+	font-size: 6em;
+}
+
+.sign_in_form {
+	margin-top: 15%;
+}
+
+.sign_up_form {
+	margin-top: 12%;
+}
+
+/* Changes Bootstrap defaults */
+.form-inline > * {
+  margin-right: 35px;
+}
+
+form.line {
+	margin-top: 20px;
+}
+
+
+/* NAVBARS */
+
+/* Navbar images */
+.nav_img {
+	background-size: cover;
+	background-repeat: none;
+}
+
+.event_nav {
+	background-image: url('../assets/eventnav.png');
+}
+
+.art_nav {
+	background-image: url('../assets/artnav.png');
+}
+
+.fest_nav {
+	background-image: url('../assets/festnav.png');
+}
+
+.concert_nav {
+	background-image: url('../assets/concertnav.png');
+}
+
+.con_nav {
+	background-image: url('../assets/connav.png');
+}
+
+/* For all text in the navbar */
+.nav_text {
+	margin-left: 25px;
+	display: block;
+}
+
+/* LA Events logo in the navbar */
+.nav_logo {
+	font-family: 'Satisfy', cursive;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-size: 5em;
+	margin-top: -25px;
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+/* For the sign out link in the navbar */
+.nav_sign_out {
+	float: right;
+	font-family: 'Satisfy', cursive;
+	margin-left: 10px;
+	color: white;
+	font-size: 1.5em;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/* Links to different pages in the navbar */
+.nav_links {
+	margin-left: 2%;
+	font-size: 1.5em;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	padding-right: 5px;
+}
+
+/* Changes the nav links color from default */
+.nav_link_color {
+	color: white;
+}
+
+/* Changes the nav links color when hovering from default*/
+.nav_link_color:hover {
+	color: white;
+}
+
+/* All list items in the navbar */
+nav li {
+	display: inline; 
+}
+
+
+/* HEADERS */
+
+/* Header for index.html.erb pages */
+
+/* Sets for all headers */
+.header {
+	text-align: center;
+	font-family: 'Satisfy', cursive;
+}
+
+.index_header {
+	font-size: 4em;
+}
+
+
+/* SHOW PAGES */
+
+/* Makes labels slightly larger */
+.bold {
+	font-size: 1.25em;
+}
+
+/* Makes the labels inline with the input boxes */
+.inline {
+	display: inline;
+}
+
+
+/* MEDIA QUERIES */
+@media only screen 
+and (max-width : 320px) {
+	.event_nav {
+		width: 135%;
+	}
+	.navbar-toggle {
+		margin-right: 35%;
+	}
 }
 
 @media only screen 
@@ -135,94 +258,6 @@ and (max-width: 440px) {
 	}
 }
 
-.sign_logo_set {
-	font-family: 'Satisfy', cursive;
-	text-align: center;
-	margin-top: 15%;
-	color: rgb(119, 151, 195);
-	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-}
-
-.sign_events_logo {
-	font-size: 6em;
-}
-
-.sign_logo {
-	font-size: 3em;
-}
-
-.nav_text {
-	margin-left: 25px;
-}
-
-.event_nav {
-	background-image: url('../assets/eventnav.png');
-	background-size: cover;
-	background-repeat: none;
-}
-
-.art_nav {
-	background-image: url('../assets/artnav.png');
-	background-size: cover;
-	background-repeat: none;
-}
-
-.fest_nav {
-	background-image: url('../assets/festnav.png');
-	background-size: cover;
-	background-repeat: none;
-}
-
-.concert_nav {
-	background-image: url('../assets/concertnav.png');
-	background-size: cover;
-	background-repeat: none;
-}
-
-.con_nav {
-	background-image: url('../assets/connav.png');
-	background-size: cover;
-	background-repeat: none;
-}
-
-nav li {
-	display: inline; 
-}
-
-.nav_link_color {
-	color: white;
-}
-
-.nav_link_color:hover {
-	color: white;
-}
-
-.nav_links {
-	margin-left: 2%;
-	font-size: 1.5em;
-	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-	padding-right: 5px;
-}
-
-.nav_sign_out {
-	float: right;
-	font-family: 'Satisfy', cursive;
-	margin-left: 10px;
-	color: white;
-	font-size: 1.5em;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-.nav_logo {
-	font-family: 'Satisfy', cursive;
-	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	font-size: 5em;
-	margin-top: -25px;
-	margin-left: 15px;
-	margin-right: 20px;
-}
-
 @media only screen 
 and (max-width: 400px) {
 	.nav_logo {
@@ -237,51 +272,18 @@ and (max-width: 400px) {
 	}
 }
 
-.header {
-	text-align: center;
-	font-family: 'Satisfy', cursive;
-	font-size: 4em;
+
+/* ETC. */
+
+body {
+	font-family: 'Merriweather', serif;
 }
 
-.show_col_1 {
-	text-align: center;
+.container-fluid {
+	padding-top: 50px;
 }
 
-.bold {
-	font-size: 1.25em;
-}
-
-.inline {
-	display: inline;
-}
-
-.form-inline > * {
-  margin-right: 35px;
-}
-
+/* For back arrow glyphicon */
 .spaced {
 	margin-left: 26%;
-}
-
-form.line {
-	margin-top: 20px;
-}
-
-.edit_header {
-	text-align: center;
-	font-family: 'Satisfy', cursive;
-}
-
-.nav_text {
-	display: block;
-}
-
-@media only screen 
-and (max-width : 320px) {
-	.event_nav {
-		width: 135%;
-	}
-	.navbar-toggle {
-		margin-right: 35%;
-	}
 }
