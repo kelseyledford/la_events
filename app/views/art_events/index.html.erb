@@ -1,19 +1,25 @@
+<!-- Navbar -->
 <nav class="navbar navbar-default art_nav"> 
 	<%= render partial: "shared/navbar" %>
 </nav>
 
+<!-- Flash alerts -->
 <%= render partial: "shared/flash" %>
 
 <div class= "container">
 	<h1 class="header">Art Events</h1>
 	<br>
+	<!-- Datatables gem -->
 	<table class="events_list table table-bordered table-responsive table-condensed table-hover">
 		<thead>
 		<tr>
 			<th>Date</th>
+			<!-- Col 3 is sorted by the hidden Col 2 which has time in 24hour format -->
+			<!-- This allows Col 3 time to be sortable despite displaying in AM/PM -->
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
+			<!-- These columns will be hidden in mobile version -->
 			<th class="hidden_col">Price</th>
 			<th class="hidden_col">Neighborhood</th>
 			<th>More Info</th>
@@ -23,16 +29,20 @@
 		<% @artevents.each do |artevent| %>
 		<tr>
 			<td><%= artevent.event_date.strftime("%m/%d/%y") %></td>
+			<!-- See above -->
 			<td style="display: none"><%= artevent.start_time %></td>
 			<td><%= artevent.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= artevent.name %></strong></td>
+			<!-- See above -->
 			<td class="hidden_col"><%= artevent.price %></td>
 			<td class="hidden_col"><% if artevent.neighborhood %><%= artevent.neighborhood.name %><% end %></td>
+			<!-- Links to the show page for this event -->
 			<td><%= link_to 'Details', artevent %></td>
 		</tr>
 		<% end %>
 		</tbody>
 	</table>
 
+	<!-- Allows the user to create a new art event -->
 	<%= link_to 'New Event', new_art_event_path %>
 </div>

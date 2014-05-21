@@ -1,3 +1,4 @@
+<!-- Alerts users if there are any errors in the form -->
 <% if @artevent.errors.any? %>
 	<h2><%= pluralize(@artevent.errors.count, "error") %>
 	<ul class="list-group">
@@ -11,13 +12,16 @@
 
 <%= bootstrap_form_for @artevent do |f| %>
 <div class="row">
+	<!-- Two column form with Bootstrap -->
   <div class="col-md-6">
+  	<!-- Makes it easier to style each part of the form with Bootstrap -->
   	<div class="form-group">
 			<%= f.text_field :name, placeholder: 'Name', label: "Event Name *" %>
 		</div>
   	<div class="form-group">
 			<%= f.date_select :event_date, label: 'Event Date' %>
 		</div>
+		<!-- Time-field allows you to select hour, minute and AM/PM in one box -->
 		<div class="form-inline form-group">
 			<%= f.time_field :start_time, {ampm: true, minute_step: 15} %>
 			<%= f.time_field :end_time, {ampm: true, minute_step: 15} %>
@@ -30,6 +34,7 @@
 		<div class="form-group">
 		<%= f.text_field :price, placeholder: 'Price', label: "Price *" %>
 		</div>
+		<!-- Drop down menu to select neighborhood from neighborhood model -->
   	<div class="form-group">
 			<%= f.label "Neighborhood:" %>
 			<%= collection_select :art_event, :neighborhood, Neighborhood.all, :id, :name %>
@@ -48,6 +53,7 @@
 		</div>
 		<%= f.submit "Submit" %>
 		<% end %>
+		<!-- Back arrow -->
 		<span class="spaced glyphicon glyphicon-chevron-left"></span>
 		<%= link_to "	Back to the Art Events Page", art_events_path %>
 	</div>

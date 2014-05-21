@@ -1,13 +1,17 @@
+<!-- Navbar -->
 <nav class="navbar navbar-default art_nav"> 
   <%= render partial: "shared/navbar" %>
 </nav>
 
+<!-- Flash alert -->
 <%= render partial: "shared/flash" %>
 
 <div class="container">
   <h1 class="header"><%= @artevent.name %></h1>
   <div class="row">
+    <!-- Two column layout with Bootstrap -->
     <div class="col-md-6 show_col_1">
+      <!-- Back arrow and link to the main art events page -->
       <span class="glyphicon glyphicon-chevron-left"></span>
       <%= link_to " Back to the Art Events Page", art_events_path %>
       <br><br>
@@ -25,13 +29,17 @@
         <%= @artevent.details %>
       <% end %>
       <br><br>
+      <!-- If the event has been updated at some point, it will show the username of the last person who updated it -->
       <% if @artevent.updated_by_id != nil %>
         <em>Last updated by:</em>
         <%= @artevent.updated_by_id %>
       <% end %>
+      <!-- For styling purposes, only shows the ~ if both Last Updated by and Created by are being shown -->
+      <!-- Otherwise there is nothing or only one of them on the line -->
       <% if @artevent.updated_by_id != nil && @artevent.created_by_id != nil %>
         ~ 
       <% end %>
+      <!-- If someone created this event (not seeded), their username will be displayed here -->
       <% if @artevent.created_by_id != nil %>
         <em>Created by:</em> 
         <%= @artevent.created_by_id %>
@@ -39,24 +47,30 @@
       <br><br>
       <%= link_to "Update This Event", edit_art_event_path(@artevent) %>
       <br><br>
+      <!-- Hides the delete button unless user is the admin -->
       <% if current_user.is_admin? %>
         <%= link_to "Delete This Event", @artevent, method: :delete, data: { confirm: 'Are you sure you want to delete this artevent?' } %>
       <% end %>
     </div>
-    <!-- Google Map goes here -->
+    <!-- Second column -->
     <div class="col-md-6" style='width: 400px;'>
       <div id="map" style='width: 400px; height: 400px;'></div>
     </div>
   
-   <script type ="text/javascript">
+  <!-- Google Maps API -->
+  <script type ="text/javascript">
   	var handler = Gmaps.build('Google');
+    // Sets the zoom, your API key
     handler.buildMap({ provider: {zoom: 14, provider_key: "AIzaSyBnugBXbtHJ6qqIyILKqKPQ1l2rafKtjx0"}, internal: {id: 'map'}}, function(){
+    // Adds markers to the event based on the coordinates that Geocoder made with the art event's combined address
+    // Latitude and longitude are reversed in the Mongo db
     markers = handler.addMarker(
       {
         lat: <%= @artevent.to_coordinates[0] %>,
         lng: <%= @artevent.to_coordinates[1] %>
       }
     );
+    // Tells the map to center on those coordinates
     handler.map.centerOn({
         lat: <%= @artevent.to_coordinates[0] %>,
         lng: <%= @artevent.to_coordinates[1] %>

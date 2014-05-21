@@ -1,3 +1,4 @@
+<!-- Flashes green notice for success (via Bootstrap)-->
 <% if flash[:success] %>
   <% flash.each do |key, value| %>
     <div class="alert alert-success">
@@ -6,6 +7,7 @@
   <% end %>
 <% end %>
 
+<!-- Flashes red notice for errors (via Bootstrap) -->
 <% if flash[:error] %>
   <% flash.each do |key, value| %>
     <div class="alert alert-error">

@@ -275,3 +275,13 @@ form.line {
 .nav_text {
 	display: block;
 }
+
+@media only screen 
+and (max-width : 320px) {
+	.event_nav {
+		width: 135%;
+	}
+	.navbar-toggle {
+		margin-right: 35%;
+	}
+}

@@ -1,11 +1,15 @@
+<!-- Navbar -->
 <nav class="navbar navbar-default art_nav"> 
 	<%= render partial: "shared/navbar" %>
 </nav>
 
 <div class="container">
+	<!-- Flash alert -->
 	<%= render partial: "shared/flash" %>
 
+	<!-- Header that is specific to create (vs. update) -->
 	<h1 class="edit_header">New Art Event</h1>
 
+	<!-- Form for create and update -->
 	<%= render partial: "form" %>
 </div>

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  # Prevent CSRF (cross-site request forgery) attacks by raising an exception.
   protect_from_forgery with: :exception
   include ApplicationHelper
 
+  #If you aren't signed in, you're redirected to the login form
   def authenticate_user
     if !self.current_user
       render "shared/home"

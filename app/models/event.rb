@@ -28,6 +28,7 @@ class Event
   validates :zip, length: { is: 5, message: "Zipcode is too short" }, numericality: { only_integer: true, message: "Please enter a valid zip code" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  # Combines the four parts of the address that a user submits into one string for Geocoder to change into coordinates
   def address
     self.street + " " + self.city + " " + self.state + " " + self.zip
   end 

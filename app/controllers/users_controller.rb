@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    # Allows the user to fill out the form and save it
+    # Calls the setter for the user params that it takes in
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "You have signed up successfully"
