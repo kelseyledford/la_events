@@ -14,8 +14,8 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
-			<th>Price</th>
-			<th>Neighborhood</th>
+			<th class="hidden_col">Price</th>
+			<th class="hidden_col">Neighborhood</th>
 			<th>More Info</th>
 		</tr>
 		</thead>
@@ -26,8 +26,8 @@
 			<td style="display: none"><%= event.start_time %></td>
 			<td><%= event.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= event.name %></strong></td>
-			<td><%= event.price %></td>
-			<td><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
+			<td class="hidden_col"><%= event.price %></td>
+			<td class="hidden_col"><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', event %></td>
 		</tr>
 		<% end %>

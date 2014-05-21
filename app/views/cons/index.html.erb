@@ -14,8 +14,8 @@
 			<th style="display: none">Timesort</th>
 			<th>Time</th>
 			<th>Name</th>
-			<th>Price</th>
-			<th>Neighborhood</th>
+			<th class="hidden_col">Price</th>
+			<th class="hidden_col">Neighborhood</th>
 			<th>More Info</th>
 		</tr>
 		</thead>
@@ -26,8 +26,8 @@
 			<td style="display: none"><%= con.start_time %></td>
 			<td><%= con.start_time.strftime("%l:%M%P") %></td>
 			<td><strong><%= con.name %></strong></td>
-			<td><%= con.price %></td>
-			<td><% if con.neighborhood %><%= con.neighborhood.name %><% end %></td>
+			<td class="hidden_col"><%= con.price %></td>
+			<td class="hidden_col"><% if con.neighborhood %><%= con.neighborhood.name %><% end %></td>
 			<td><%= link_to 'Details', con %></td>
 		</tr>
 		<% end %>

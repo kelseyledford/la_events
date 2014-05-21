@@ -157,22 +157,32 @@ and (max-width: 440px) {
 
 .event_nav {
 	background-image: url('../assets/eventnav.png');
+	background-size: cover;
+	background-repeat: none;
 }
 
 .art_nav {
 	background-image: url('../assets/artnav.png');
+	background-size: cover;
+	background-repeat: none;
 }
 
 .fest_nav {
 	background-image: url('../assets/festnav.png');
+	background-size: cover;
+	background-repeat: none;
 }
 
 .concert_nav {
 	background-image: url('../assets/concertnav.png');
+	background-size: cover;
+	background-repeat: none;
 }
 
 .con_nav {
 	background-image: url('../assets/connav.png');
+	background-size: cover;
+	background-repeat: none;
 }
 
 nav li {
@@ -211,6 +221,20 @@ nav li {
 	margin-top: -25px;
 	margin-left: 15px;
 	margin-right: 20px;
+}
+
+@media only screen 
+and (max-width: 400px) {
+	.nav_logo {
+		font-size: 3em;
+	}
+	.nav_links {
+		font-size: 1em;
+		padding: 0px;
+	}
+	.hidden_col {
+		display: none;
+	}
 }
 
 .header {
