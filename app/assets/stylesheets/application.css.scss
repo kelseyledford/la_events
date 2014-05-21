@@ -29,30 +29,44 @@ body {
 	width: 750px;
 	border: 1px solid black;
 	padding: 15px;
-	display: block;
-	position: fixed;
-	margin: auto;
+/*	display: block;*/
+	position: relative;
+/*	margin: auto;*/
+	margin-top: 50px;
+}
+
+.welcome_div {
+	width: 80%;
+	position: absolute;
 	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	/*margin-top: 50px;*/
+	margin-left: 10%;
+	margin-top: 50px;
+/*	width: 750px;
+	height: 520px;*/
+/*	position: absolute;
+	top: 0;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 50px;
+	text-align: center;*/
 }
 
 #welcome_logo {
 	font-family: 'Satisfy', cursive;
 	font-size: 8em;
 	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	text-align: center;
-	width: 500px;
-	position: fixed;
+	margin-top: 6%;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+/*	text-align: center;*/
+	/*width: 500px;*/
+/*	position: fixed;
 	margin: auto;
 	margin-top: 100px;
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 0;*/
 /*	display: block;
 	left: 50%;*/
 /*	margin-left: -50px;*/
@@ -62,20 +76,63 @@ body {
 	font-family: 'Satisfy', cursive;
 	font-size: 3em;
 	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	text-align: center;
-	position: fixed;
-	margin: auto;
+	margin-top: 11%;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+/*	text-align: center;*/
+	/*position: fixed;*/
+/*	margin: auto;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	margin-top: 325px;
+	margin-top: 325px;*/
 }
 
 a.home_link {
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.created_by {
+	font-family: 'Satisfy', cursive;
+	clear: both;
+	color: rgb(119, 151, 195);
+	font-size: 1.25em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+@media only screen 
+and (max-width: 580px) {
+	.home_text {
+		margin-top: 30%;
+		color: rgb(119, 151, 195);
+	}
+	a.home_link {
+		color: rgb(119, 151, 195);
+	}
+}
+
+@media only screen 
+and (max-width: 480px) {
+	#welcome_logo {
+/*		margin-top: 8%;*/
+		font-size: 6em;
+	}
+	.home_text {
+		margin-top: 60%;
+		font-size: 2em;
+	}
+}
+
+@media only screen
+and (max-width: 440px) {
+	.home_text {
+		margin-top: 30%;
+	}
 }
 
 .sign_logo_set {
@@ -130,10 +187,6 @@ nav li {
 	color: white;
 }
 
-.nav_links_all {
-
-}
-
 .nav_links {
 	margin-left: 2%;
 	font-size: 1.5em;
@@ -142,10 +195,10 @@ nav li {
 }
 
 .nav_sign_out {
-	margin-left: 75px;
+	float: right;
 	font-family: 'Satisfy', cursive;
+	margin-left: 10px;
 	color: white;
-	margin-top: 55px;
 	font-size: 1.5em;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

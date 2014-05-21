@@ -16,4 +16,3 @@
 //= require gmaps/google
 //= require bootstrap
 //= require_tree .
-
