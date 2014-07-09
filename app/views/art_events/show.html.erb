@@ -48,8 +48,10 @@
       <%= link_to "Update This Event", edit_art_event_path(@artevent) %>
       <br><br>
       <!-- Hides the delete button unless user is the admin -->
-      <% if current_user.is_admin? %>
-        <%= link_to "Delete This Event", @artevent, method: :delete, data: { confirm: 'Are you sure you want to delete this artevent?' } %>
+      <% if current_user %>
+        <% if current_user.is_admin? %>
+          <%= link_to "Delete This Event", @artevent, method: :delete, data: { confirm: 'Are you sure you want to delete this artevent?' } %>
+        <% end %>
       <% end %>
     </div>
     <!-- Second column -->

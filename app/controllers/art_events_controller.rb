@@ -2,7 +2,7 @@ class ArtEventsController < EventsController
 
 	# Connected to the authenticate_user function in the application controller
 	# Prevents people from touching this controller until they are logged in
-	before_action :authenticate_user
+	# before_action :authenticate_user
 	before_filter :set_timezone
 
 	def index
@@ -25,7 +25,9 @@ class ArtEventsController < EventsController
 		end_time = params[:art_event]
 		@artevent.end_time = Time.new 1900, 1, 1, end_time["end_time(4i)"].to_i, end_time["end_time(5i)"].to_i
 		# Stores the user who created the event so that it can be displayed in the view
-		@artevent.created_by_id = @current_user.name
+		if @current_user
+			@artevent.created_by_id = @current_user.name
+		end
 		if @artevent.save
 			flash[:success] = "Event created"
 			redirect_to art_events_path

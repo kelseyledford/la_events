@@ -83,7 +83,7 @@ a.home_link {
 	font-family: 'Satisfy', cursive;
 	text-align: center;
 	margin-top: 15%;
-	color: rgb(119, 151, 195);
+	color: rgb(68, 139, 204);
 	text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
 
@@ -107,6 +107,15 @@ a.home_link {
 
 form.line {
 	margin-top: 20px;
+}
+
+/* Rerouting to sign in and sign up pages */
+
+.sign_details {
+	color: black;
+	font-size: 1.35em;
+	margin-top: 7%;
+	text-shadow: none;
 }
 
 

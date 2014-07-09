@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   #If you aren't signed in, you're redirected to the login form
-  def authenticate_user
-    if !self.current_user
-      render "shared/home"
-    end
-  end
+  # def authenticate_user
+  #   if !self.current_user
+  #     render "shared/home"
+  #   end
+  # end
 
   # Sets the timezone to Pacific Time before anything is created/saved/updated
 	# This will then be translated into UTC in Mongo before being changed back to Pacific in the view
