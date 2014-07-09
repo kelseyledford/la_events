@@ -3,10 +3,6 @@ class FestivalsController < EventsController
 	before_action :authenticate_user
 	before_filter :set_timezone
 
- 	def set_timezone
-  	Time.zone = "Pacific Time (US & Canada)"
- 	end
-
 	def index
 		@festivals = Festival.all
 	end

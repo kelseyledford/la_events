@@ -5,12 +5,6 @@ class ArtEventsController < EventsController
 	before_action :authenticate_user
 	before_filter :set_timezone
 
-	# Sets the timezone to Pacific Time before anything is created/saved/updated
-	# This will then be translated into UTC in Mongo before being changed back to Pacific in the view
- 	def set_timezone
-  	Time.zone = "Pacific Time (US & Canada)"
- 	end
-
 	def index
 		@artevents = ArtEvent.all
 	end

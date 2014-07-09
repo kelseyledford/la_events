@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     @user = User.where(:email => params[:session][:email]).first
     # No user in the db that matches that email or password doesn't match the one in the db
     if @user == nil || !@user.authenticate(params[:session][:password])
+      # flash.now
       flash[:error] = "Invalid email/password combination"
       render 'new'
     # If there was already a user in the db that had an email matching the one that 
