@@ -1,11 +1,13 @@
-<nav class="navbar navbar-default event_nav nav_img" role="navigation"> 
+<!-- Navbar -->
+<nav class="navbar navbar-default art_nav nav_img"> 
 	<%= render partial: "shared/navbar" %>
 </nav>
 
+<!-- Flash alerts -->
 <%= render partial: "shared/flash" %>
 
 <div class= "container">
-	<h1 class="header index_header">All Events</h1>
+	<h1 class="header index_header">Art Events</h1>
 	<br>
 	<table class="events_list table table-bordered table-responsive table-condensed table-hover">
 		<thead>
@@ -20,7 +22,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<% @events.each do |event| %>
+		<% @arts.each do |event| %>
 		<tr>
 			<td><%= event.event_date.strftime("%m/%d/%y") %></td>
 			<td style="display: none"><%= event.start_time %></td>
@@ -34,5 +36,4 @@
 		</tbody>
 	</table>
 
-	<%= link_to 'New Event', new_event_path %>
 </div>

@@ -36,6 +36,7 @@ class Event
   geocoded_by :address
   after_validation :geocode
 
+  belongs_to :event_type
   belongs_to :neighborhood
   belongs_to :location
 

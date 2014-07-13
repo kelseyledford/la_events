@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:new, :create, :destroy]
   resources :events
-  resources :festivals
-  resources :art_events
-  resources :concerts
-  resources :cons
+  get '/festivals', to: 'events#festival', as: 'festivals'
+  get '/arts', to: 'events#art', as: 'arts'
+  get '/cons', to: 'events#con', as: 'cons'
+  get '/concerts', to: 'events#concert', as: 'concerts'
   resources :users, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.

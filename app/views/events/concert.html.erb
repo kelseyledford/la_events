@@ -20,19 +20,18 @@
 		</tr>
 		</thead>
 		<tbody>
-		<% @concerts.each do |concert| %>
+		<% @concerts.each do |event| %>
 		<tr>
-			<td><%= concert.event_date.strftime("%m/%d/%y") %></td>
-			<td style="display: none"><%= concert.start_time %></td>
-			<td><%= concert.start_time.strftime("%l:%M%P") %></td>
-			<td><strong><%= concert.name %></strong></td>
-			<td class="hidden_col"><%= concert.price %></td>
-			<td class="hidden_col"><% if concert.neighborhood %><%= concert.neighborhood.name %><% end %></td>
-			<td><%= link_to 'Details', concert %></td>
+			<td><%= event.event_date.strftime("%m/%d/%y") %></td>
+			<td style="display: none"><%= event.start_time %></td>
+			<td><%= event.start_time.strftime("%l:%M%P") %></td>
+			<td><strong><%= event.name %></strong></td>
+			<td class="hidden_col"><%= event.price %></td>
+			<td class="hidden_col"><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
+			<td><%= link_to 'Details', event %></td>
 		</tr>
 		<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'New Concert', new_concert_path %>
 </div>

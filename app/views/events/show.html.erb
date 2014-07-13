@@ -1,56 +1,54 @@
-<!-- Navbar -->
-<nav class="navbar navbar-default art_nav nav_img"> 
+<nav class="navbar navbar-default event_nav nav_img" role="navigation"> 
   <%= render partial: "shared/navbar" %>
 </nav>
 
-<!-- Flash alert -->
 <%= render partial: "shared/flash" %>
 
 <div class="container">
-  <h1 class="header"><%= @artevent.name %></h1>
+  <h1 class="header"><%= @event.name %></h1>
   <div class="row show_text">
     <!-- Two column layout with Bootstrap -->
     <div class="col-md-6 show_col_1">
       <!-- Back arrow and link to the main art events page -->
       <span class="glyphicon glyphicon-chevron-left"></span>
-      <%= link_to " Back to the Art Events Page", art_events_path %>
+      <%= link_to " Back to the Events Page", events_path %>
       <br><br>
       <p class="bold inline">Date:  </p>
-      <%= @artevent.event_date.strftime("%m/%d/%y")%>
+      <%= @event.event_date.strftime("%m/%d/%y")%>
       <br><br>
       <p class="bold inline">Time:  </p>
-      <%= @artevent.start_time.strftime("%l:%M%p") %> - <%= @artevent.end_time.strftime("%l:%M%p") %>
+      <%= @event.start_time.strftime("%l:%M%p") %> - <%= @event.end_time.strftime("%l:%M%p") %>
       <br><br>
       <p class="bold">Address:</p> 
-      <%= @artevent.street %>, <%= @artevent.city %>, <%= @artevent.state %>, <%= @artevent.zip %>
+      <%= @event.street %>, <%= @event.city %>, <%= @event.state %>, <%= @event.zip %>
       <br><br>
-      <% if @artevent.details != "" %>
+      <% if @event.details != "" %>
         <p class="bold">Details:</p>
-        <%= @artevent.details %>
+        <%= @event.details %>
       <% end %>
       <br><br>
       <!-- If the event has been updated at some point, it will show the username of the last person who updated it -->
-      <% if @artevent.updated_by_id != nil %>
+      <% if @event.updated_by_id != nil %>
         <em>Last updated by:</em>
-        <%= @artevent.updated_by_id %>
+        <%= @event.updated_by_id %>
       <% end %>
       <!-- For styling purposes, only shows the ~ if both Last Updated by and Created by are being shown -->
       <!-- Otherwise there is nothing or only one of them on the line -->
-      <% if @artevent.updated_by_id != nil && @artevent.created_by_id != nil %>
+      <% if @event.updated_by_id != nil && @event.created_by_id != nil %>
         ~ 
       <% end %>
       <!-- If someone created this event (not seeded), their username will be displayed here -->
-      <% if @artevent.created_by_id != nil %>
+      <% if @event.created_by_id != nil %>
         <em>Created by:</em> 
-        <%= @artevent.created_by_id %>
+        <%= @event.created_by_id %>
       <% end %>
       <br><br>
-      <%= link_to "Update This Event", edit_art_event_path(@artevent) %>
+      <%= link_to "Update This Event", edit_art_event_path(@event) %>
       <br><br>
       <!-- Hides the delete button unless user is the admin -->
       <% if current_user %>
         <% if current_user.is_admin? %>
-          <%= link_to "Delete This Event", @artevent, method: :delete, data: { confirm: 'Are you sure you want to delete this artevent?' } %>
+          <%= link_to "Delete This Event", @event, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' } %>
         <% end %>
       <% end %>
     </div>
@@ -68,14 +66,14 @@
     // Latitude and longitude are reversed in the Mongo db
     markers = handler.addMarker(
       {
-        lat: <%= @artevent.to_coordinates[0] %>,
-        lng: <%= @artevent.to_coordinates[1] %>
+        lat: <%= @event.to_coordinates[0] %>,
+        lng: <%= @event.to_coordinates[1] %>
       }
     );
     // Tells the map to center on those coordinates
     handler.map.centerOn({
-        lat: <%= @artevent.to_coordinates[0] %>,
-        lng: <%= @artevent.to_coordinates[1] %>
+        lat: <%= @event.to_coordinates[0] %>,
+        lng: <%= @event.to_coordinates[1] %>
       });
   });
   </script>

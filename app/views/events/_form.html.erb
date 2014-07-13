@@ -1,8 +1,8 @@
 <!-- Alerts users if there are any errors in the form -->
-<% if @artevent.errors.any? %>
-	<h2><%= pluralize(@artevent.errors.count, "error") %>
+<% if @event.errors.any? %>
+	<h2><%= pluralize(@event.errors.count, "error") %>
 	<ul class="list-group">
-		<% @artevent.errors.messages.each do |message| %>
+		<% @event.errors.messages.each do |message| %>
 		<li class="list-group-item list-group-item-danger">
 			<%= message[1][0] %>
 		</li>
@@ -10,7 +10,7 @@
 	</ul> 
 <% end %>
 
-<%= bootstrap_form_for @artevent do |f| %>
+<%= bootstrap_form_for @event do |f| %>
 <div class="row">
 	<!-- Two column form with Bootstrap -->
   <div class="col-md-6">
@@ -18,6 +18,10 @@
   	<div class="form-group">
 			<%= f.text_field :name, placeholder: 'Name', label: "Event Name *" %>
 		</div>
+  	<div class="form-group">
+  		<%= f.label 'Event Type:' %>
+  		<%= collection_select :event, :event_type, EventType.all, :id, :name %>
+  	</div>
   	<div class="form-group">
 			<%= f.date_select :event_date, label: 'Event Date' %>
 		</div>
@@ -37,7 +41,7 @@
 		<!-- Drop down menu to select neighborhood from neighborhood model -->
   	<div class="form-group">
 			<%= f.label "Neighborhood:" %>
-			<%= collection_select :art_event, :neighborhood, Neighborhood.all, :id, :name %>
+			<%= collection_select :event, :neighborhood, Neighborhood.all, :id, :name %>
 		</div>
   	<div class="form-group">
 			<%= f.text_field :street, placeholder: 'Street Address', label: 'Address *' %>
@@ -55,6 +59,6 @@
 		<% end %>
 		<!-- Back arrow -->
 		<span class="spaced glyphicon glyphicon-chevron-left"></span>
-		<%= link_to "	Back to the Art Events Page", art_events_path %>
+		<%= link_to "	Back to the Events Page", events_path %>
 	</div>
 </div>

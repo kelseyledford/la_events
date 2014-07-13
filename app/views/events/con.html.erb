@@ -20,19 +20,18 @@
 		</tr>
 		</thead>
 		<tbody>
-		<% @cons.each do |con| %>
+		<% @cons.each do |event| %>
 		<tr>
-			<td><%= con.event_date.strftime("%m/%d/%y") %></td>
-			<td style="display: none"><%= con.start_time %></td>
-			<td><%= con.start_time.strftime("%l:%M%P") %></td>
-			<td><strong><%= con.name %></strong></td>
-			<td class="hidden_col"><%= con.price %></td>
-			<td class="hidden_col"><% if con.neighborhood %><%= con.neighborhood.name %><% end %></td>
-			<td><%= link_to 'Details', con %></td>
+			<td><%= event.event_date.strftime("%m/%d/%y") %></td>
+			<td style="display: none"><%= event.start_time %></td>
+			<td><%= event.start_time.strftime("%l:%M%P") %></td>
+			<td><strong><%= event.name %></strong></td>
+			<td class="hidden_col"><%= event.price %></td>
+			<td class="hidden_col"><% if event.neighborhood %><%= event.neighborhood.name %><% end %></td>
+			<td><%= link_to 'Details', event %></td>
 		</tr>
 		<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'New Geek Event', new_con_path %>
 </div>
