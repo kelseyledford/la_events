@@ -43,7 +43,7 @@
         <%= @event.created_by_id %>
       <% end %>
       <br><br>
-      <%= link_to "Update This Event", edit_art_event_path(@event) %>
+      <%= link_to "Update This Event", edit_event_path(@event) %>
       <br><br>
       <!-- Hides the delete button unless user is the admin -->
       <% if current_user %>
